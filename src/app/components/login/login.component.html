@@ -1,0 +1,74 @@
+<div class="text-center text-dark">
+    <main class="form-signin">
+        <form [formGroup]="loginCuentaForm" (ngSubmit)="onSubmit()" >
+          <i class="far fa-user"></i>
+          <h1 class="h3 mb-3 fw-normal">{{title}}</h1>
+    
+          <div class="form-floating text-dark">
+            <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="usuario123">
+            <label for="floatingInput">Email</label>
+            <small
+                *ngIf= "loginCuentaForm.controls['email'].touched && !loginCuentaForm.controls['email'].valid"
+                class="form-text text-danger text-uppercase">
+                Ingrese un email valido.
+            </small>
+          </div>
+          <div class="form-floating text-dark">
+            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="pass123">
+            <label for="floatingPassword">Contraseña</label>
+            <small
+                *ngIf= "loginCuentaForm.controls.password.errors?.['minlength']"
+                class="form-text text-danger text-uppercase">
+                Ingrese al menos 5 caracteres.
+            </small>
+            <small
+                *ngIf= "loginCuentaForm.controls.password.errors?.['maxlength']"
+                class="form-text text-danger text-uppercase">
+                No ingrese m&aacute;s de 15 caracteres.
+            </small>
+          </div>
+          
+          <div class="d-flex">
+            <button 
+              [disabled]="!loginCuentaForm.valid" 
+              class="btn w-100 btn-warning btn-lg" 
+              type="submit">{{button_title}}</button>
+          </div>
+          <small
+                class="form-text text-danger text-uppercase">
+                {{errorInicioDeSesion}}
+            </small>
+          
+        </form>
+    </main>
+    <div id="seleccion-usuario-container">
+        <div id="seleccion-usuario-carga" *ngIf="!this.usuariosCargados">
+          <img class="carga-img" src="/assets/spinner-loading.svg" alt="Cargando Lista de Usuarios">
+        </div>
+        <div id="opciones-seleccion-usuario" *ngIf="this.usuariosCargados">
+          <button class="align-self-center" [matMenuTriggerFor]="usuariosMenu" mat-flat-button color="accent" aria-label="Ver usuarios de inicio rapido">
+            <mat-icon>supervisor_account</mat-icon>
+          </button>
+      
+          <mat-menu class="px-2 w-100" #usuariosMenu="matMenu" yPosition="above" xPosition="before">
+            <h3 mat-subheader>Administradores</h3>
+            <app-users-list
+            [usuario]="this.admin"
+            (seleccionado)="this.onSeleccionarParaInicioRapido($event)"></app-users-list>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Especialistas</h3>
+            <app-users-list
+              *ngFor="let usuario of this.especialistas"
+              [usuario]="usuario"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)"></app-users-list>
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Pacientes</h3>
+            <app-users-list
+              *ngFor="let usuario of this.pacientes"
+              [usuario]="usuario"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)" ></app-users-list>
+          </mat-menu>
+        </div>
+    </div>
+</div>
+  

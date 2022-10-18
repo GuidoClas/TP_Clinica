@@ -1,0 +1,17 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url( "../assets/clinic-wp-big.jpg" );
+    z-index: -1;
+    opacity: .9;
+}
