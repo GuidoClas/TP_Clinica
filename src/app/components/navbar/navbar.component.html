@@ -21,15 +21,19 @@
         <li class="nav-item">
           <a class="nav-link text-white mx-2" routerLink="register">Registrarse</a>
         </li>
-        <li class="nav-item dropdown">
+        <!--SECCIÓN USUARIOS ADMIN -->
+        <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon === '0'" class="nav-item dropdown">
           <a class="nav-link text-white mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Company
+            Usuarios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Blog</a></li>
-            <li><a class="dropdown-item" href="#">About Us</a></li>
-            <li><a class="dropdown-item" href="#">Contact us</a></li>
+            <li><a class="dropdown-item" href="#">Alta de Administrador</a></li>
+            <li><a class="dropdown-item" href="#">Aprobar Especialista</a></li>
           </ul>
+        </li>
+        <!--END SECCIÓN USUARIOS ADMIN -->
+        <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
+          <a class="nav-link text-white mx-2" (click)="this.onLogout()">Salir</a>
         </li>
       </ul>
     </div>

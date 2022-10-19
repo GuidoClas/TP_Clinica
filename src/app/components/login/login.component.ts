@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/Usuario/usuario';
 import { AuthService } from 'src/app/services/Auth/auth.service';
 
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   loginCuentaForm!: FormGroup;
 
   constructor(
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -54,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.usuariosCargados = true;
   }
 
-  onSubmit() {
+  async onSubmit() {
 
     if (!this.loginCuentaForm.valid) return;
 
@@ -66,7 +68,9 @@ export class LoginComponent implements OnInit {
     usuario.email = email;
     usuario.contrasenia = contrasenia;
 
-    if ( !this.AuthService.login(usuario) ) this.errorInicioDeSesion = "Su perfil no fue aprobado todavía";
+    const isSuccess = await this.AuthService.login(usuario);
+    
+    isSuccess ? this.router.navigate(['/home']) : this.errorInicioDeSesion = "Su perfil no fue aprobado todavía";
   }
 
   onSeleccionarParaInicioRapido ( usuario : any ) {

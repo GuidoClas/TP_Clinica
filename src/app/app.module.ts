@@ -25,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { HomeComponent } from './components/home/home.component';
 
 const material = [
   MatCardModule,
@@ -49,6 +50,7 @@ const captcha = [
     LoginComponent,
     RegisterComponent,
     UsersListComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -154,13 +154,13 @@
     </div>
 
     <hr class="my-4">
-    <span class="text-success">{{this.mensajeRegistro}}</span>
+    <span class="text-warning">{{this.mensajeRegistro}}</span>
     <span class="text-danger">{{this.mensajeErrorRegistro}}</span>
     <button [disabled]="!(this.form.valid && this.habilitarBoton)" class="w-100 btn btn-warning btn-lg" type="submit">Registrarse</button>
 
 </form>
 
-<div *ngIf="this.mostrarFullScreen" class="full-screen">
+<div *ngIf="this.mostrarFullScreen" class="mt-5 full-screen">
     <img (click)="this.elegirRazon('1')" class="img" src="../../../assets/doctor.svg" alt="especialista">
     <img (click)="this.elegirRazon('2')" class="img" src="../../../assets/patient.svg" alt="paciente">
 </div>

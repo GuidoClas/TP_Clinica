@@ -48,9 +48,8 @@ export class AuthService {
 
     usuarioDB.email = usuario.email;
     this.sesionIniciada.emit(usuario);
-    this.userLogged = usuario;
+    this.userLogged = usuarioDB;
     this.logger( usuarioDB.email, 'Inicio de Sesion' );
-
     return true;
   }
 
@@ -81,6 +80,11 @@ export class AuthService {
       this.errorRegistro.emit("Error al registrarse, intentá nuevamente");
       throw error;
     }
+  }
+
+  logout() {
+    this.userLogged = undefined;
+    this.sesionTerminada.emit(true);
   }
 
   logger( email? : string, logEvent? : string ) {
