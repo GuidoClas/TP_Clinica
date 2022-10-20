@@ -43,7 +43,7 @@
     </main>
     <div id="seleccion-usuario-container">
         <div id="seleccion-usuario-carga" *ngIf="!this.usuariosCargados">
-          <img class="carga-img" src="/assets/spinner-loading.svg" alt="Cargando Lista de Usuarios">
+          <img class="carga-img" src="../../../assets/spinner-loading.svg" alt="Cargando Lista de Usuarios">
         </div>
         <div id="opciones-seleccion-usuario" *ngIf="this.usuariosCargados">
           <button class="align-self-center" [matMenuTriggerFor]="usuariosMenu" mat-flat-button color="accent" aria-label="Ver usuarios de inicio rapido">
@@ -53,7 +53,8 @@
           <mat-menu class="px-2 w-100" #usuariosMenu="matMenu" yPosition="below" xPosition="before">
             <h3 mat-subheader>Administradores</h3>
             <app-users-list
-            [usuario]="this.admin"
+            *ngFor="let usuario of this.admins"
+            [usuario]="usuario"
             (seleccionado)="this.onSeleccionarParaInicioRapido($event)"></app-users-list>
             <mat-divider></mat-divider>
             <h3 mat-subheader>Especialistas</h3>

@@ -12,6 +12,7 @@ main::before {
     position: absolute;
     inset: 0;
     background-image: url( "../assets/clinic-wp-big.jpg" );
+    background-repeat: repeat;
     z-index: -1;
     opacity: .9;
 }

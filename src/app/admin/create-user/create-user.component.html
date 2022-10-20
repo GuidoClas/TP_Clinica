@@ -1,0 +1,107 @@
+<form 
+    [formGroup]="this.form" 
+    (ngSubmit)="this.onSubmit($event)"
+    class="full-screen mt-5"
+    >
+    <h2 class="mb-3 text-white">Registro de Administradores</h2>
+    <div class="row g-3">
+
+        <div *ngIf="this.isRequiredField('nombre')" class="col-sm-6">
+            <label for="firstName" class="form-label text-white">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" id="firstName" placeholder="Nombre" value="">
+            <div *ngIf="this.form.controls.nombre.touched && this.form.controls.nombre.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.nombre.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar letras sin espacios.
+            </div>
+        </div>
+
+        <div *ngIf="this.isRequiredField('apellido')" class="col-sm-6">
+            <label for="lastName" class="form-label text-white">Apellido</label>
+            <input formControlName="apellido" type="text" class="form-control" id="lastName" placeholder="Apellido" value="">
+            <div *ngIf="this.form.controls.apellido.touched && this.form.controls.apellido.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.apellido.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar letras. Pueden incluirse espacios.
+            </div>
+        </div>
+
+        <div *ngIf="this.isRequiredField('edad')" class="col-sm-6">
+            <label for="age" class="form-label text-white">Edad</label>
+            <input formControlName="edad" class="form-control" id="age" type="number" min="0" max="150" step="1" name="age" placeholder="18"/>
+            <div *ngIf="this.form.controls.edad.touched && this.form.controls.edad.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.edad.errors?.min" class="text-danger">
+            Debe tener m&iacute;nimo 18 a&ntilde;os. ( {{this.EDAD_MINIMA}} )
+            </div>
+            <div *ngIf="this.form.controls.edad.errors?.max" class="text-danger">
+            Excedi&oacute; la edad m&aacute;xima. ( {{this.EDAD_MAXIMA}} )
+            </div>
+        </div>
+
+        <div *ngIf="this.isRequiredField('dni')" class="col-sm-6">
+            <label for="dni" class="form-label text-white">DNI</label>
+            <input formControlName="dni" type="text" class="form-control" id="dni" placeholder="xxxxxxxx" required>
+            <div *ngIf="this.form.controls.dni.touched && this.form.controls.dni.errors?.required" class="text-danger">
+            Este es un valor requerido.
+            </div>
+            <div *ngIf="this.form.controls.dni.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar n&uacute;meros.
+            </div>
+        </div>
+
+        <div *ngIf="this.isRequiredField('email')" class="col-sm-6">
+            <label for="email" class="form-label text-white">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div *ngIf="this.form.controls.email.touched && this.form.controls.email.errors?.required" class="text-danger">
+            Este es un valor requerido.
+            </div>
+            <div *ngIf="this.form.controls.email.errors?.email" class="text-danger">
+            Debe ingrear una direcci&oacute;n email v&aacute;lida.
+            </div>
+        </div>
+
+        <div 
+            *ngIf="this.isRequiredField('contrasenia')" >
+            <label for="password" class="form-label text-white">Contrase&ntilde;a</label>
+            <input formControlName="contrasenia" type="password" class="form-control" id="password" placeholder="contrasenia123">
+            <div *ngIf="this.form.controls.contraseniatouched && this.form.controls.contrasenia.errors?.required" class="text-danger">
+            Este es un valor requerido.
+            </div>
+            <div *ngIf="this.form.controls.contrasenia.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar valores alfanum&eacute;ricos. No pueden incluirse espacios.
+            </div>
+            <div *ngIf="this.form.controls.contrasenia.errors?.minLength" class="text-danger">
+            Debe ingresar como m&iacute;nimo 6 caracteres.
+            </div>
+        </div>
+
+        <div 
+            *ngIf="this.isRequiredField('imagenUno')">
+            <label for="img-1" class="form-label text-white">Imagen de Perfil</label>
+            <input  formControlName="imagenUno"
+                    class="form-control"
+                    type="file"
+                    id="img-1" name="img-1"
+                    accept="image/png, image/jpeg"
+                    *ngIf="this.form.controls.email.valid"
+                    (change)="this.subirArchivoUno($event)">
+            <div *ngIf="this.form.controls.imagenUno.touched && this.form.controls.imagenUno.errors?.required" class="text-danger">
+            Este es un valor requerido.
+            </div>
+            <div *ngIf="this.form.controls.email.touched && !this.form.controls.email.valid" class="text-danger">
+                Ingrese un email valido para subir su archivo.
+            </div>     
+        </div>
+
+    </div>
+
+    <hr class="my-4">
+    <span class="text-warning">{{this.mensajeRegistro}}</span>
+    <span class="text-danger">{{this.mensajeErrorRegistro}}</span>
+    <button [disabled]="!(this.form.valid && this.habilitarBoton)" class="w-100 btn btn-warning btn-lg" type="submit">Registrarse</button>
+
+</form>

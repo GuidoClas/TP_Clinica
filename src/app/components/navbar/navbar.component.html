@@ -10,7 +10,7 @@
     
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this.authService.userLogged === undefined" >
           <a class="nav-link text-white mx-2" routerLink="login">Ingresar</a>
         </li>
         <li class="nav-item d-none d-lg-block">
@@ -18,7 +18,7 @@
             <img src="../../../assets/heartbeat.gif" height="80" />
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this.authService.userLogged === undefined" >
           <a class="nav-link text-white mx-2" routerLink="register">Registrarse</a>
         </li>
         <!--SECCIÓN USUARIOS ADMIN -->
@@ -27,11 +27,13 @@
             Usuarios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Alta de Administrador</a></li>
-            <li><a class="dropdown-item" href="#">Aprobar Especialista</a></li>
+            <li><a class="dropdown-item" routerLink="/admin/create">Alta de Administrador</a></li>
+            <li><a class="dropdown-item" routerLink="/admin/users">Aprobar Especialistas</a></li>
           </ul>
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
+      </ul>
+      <ul class="navbar-nav">
         <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2" (click)="this.onLogout()">Salir</a>
         </li>

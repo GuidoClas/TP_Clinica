@@ -1,0 +1,55 @@
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.ng-valid.ng-dirty:not(form) {
+    border: solid 2px lightgreen;
+}
+
+.ng-invalid.ng-dirty:not(form), .ng-invalid:not(form) {
+    border: solid 2px lightcoral;
+}
+
+.full-screen {
+    display: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+
+    height: 50%;
+    width: 100%;
+    background-color: rgb(2, 2, 2, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    border: solid 2px;
+    border-color: rgb(2, 2, 2, 1);
+}
+
+.full-screen > .img {
+    width: 256px;
+    height: 256px;
+    padding: 1rem;
+    cursor: pointer;
+    margin: auto;
+}
+
+.full-screen > .img:hover {
+    background-color: rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    padding: 3rem;
+    border-radius: 10% 0 10% 0;
+}
+    

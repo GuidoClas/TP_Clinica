@@ -1,0 +1,21 @@
+.wrapper {
+    display: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: rgba(2, 2, 2, 0.7);
+    height: 300px;
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.fonts {
+    text-align: center;
+    font-size: 42;
+    font-weight: bold;
+}

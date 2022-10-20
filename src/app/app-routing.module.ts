@@ -21,6 +21,12 @@ const routes: Routes = [
     data: { roles: ["0", "1", "2"] }
   },
   { 
+    path: 'admin', 
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [RoleGuard],
+    data: { roles: ["0"] }
+  },
+  { 
     path: '**', 
     redirectTo: 'home', 
     pathMatch: 'full' 
