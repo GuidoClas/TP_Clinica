@@ -1,0 +1,67 @@
+<div class="d-flex flex-column justify-content-between text-center mt-4 bg-class">
+    <div class="text-center text-white" *ngIf="this.paso0">
+        <h2>Elija una especialidad</h2>
+        <ul class="unstyled-list d-flex justify-content-around align-items-center">
+            <li class="" *ngFor="let especialidad of this.especialidades" >
+                <div 
+                    [style.background-image]=" 'url(' + especialidad.imagenURL + ')' "
+                    class="img-rect"
+                    (click)="this.elegirEspecialidad( especialidad.tipo )"></div>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="this.paso1 && this.especialistas.length > 0" class="text-center text-white">
+        <h2>Elija un especialista</h2>
+        <ul class="unstyled-list d-flex justify-content-around align-items-center">
+            <li class="mb-1" *ngFor="let especialista of this.especialistas" >
+                <figure 
+                    class="img-rect"
+                    (click)="this.elegirEspecialista(especialista)">
+                    <img [src]="especialista.imagenUnoUrl" [alt]="especialista.email">
+                    <figcaption>{{especialista.nombre + " " + especialista.apellido}}</figcaption>
+                </figure>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="this.paso2 && this.dias.length > 0" class="text-center text-white">
+        <h2>Elija un dia</h2>
+        <ul class="unstyled-list d-flex justify-content-around align-items-center">
+            <li class="mb-1" *ngFor="let dia of this.dias" >
+                <button 
+                    class="btn btn-warning btn-min-width" 
+                    (click)="this.elegirDia( dia )">
+                    {{dia}}
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="this.paso3 && this.dia && this.horarios.length > 0" class="text-center text-white">
+        <h2>Elija un Horario</h2>
+        <ul class="d-flex flex-wrap" style="list-style: none; gap: 30px;">
+            <li class="mb-1" *ngFor="let horario of this.horarios" >
+                <button
+                    class="btn btn-warning" 
+                    (click)="this.elegirHorario(horario)">
+                    {{horario}}
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="this.horario && this.pacientes && this.iniciado?.razon === '0'" class="text-center text-white mb-1">
+        <h2>Elija un Paciente</h2>
+        <ul class="unstyled-list d-flex justify-content-around align-items-center">
+            <li class="mb-1" *ngFor="let paciente of this.pacientes" >
+                <button
+                    class="btn btn-warning" 
+                    (click)="this.setPaciente(paciente)">
+                    {{paciente.email}}
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="this.paciente && this.horario" class="w-100 mb-2 text-center text-white">
+        <button 
+            class="btn btn-warning"
+            (click)="this.solicitarTurno()">Solicitar Turno</button>
+    </div>
+</div>

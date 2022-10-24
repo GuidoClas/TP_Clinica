@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
 import { HomeComponent } from './components/home/home.component';
 import { ParseDNIPipe } from './pipes/DNI/parse-dni.pipe';
+import { TurnApplicationComponent } from './components/turn-application/turn-application.component';
 
 const material = [
   MatCardModule,
@@ -52,7 +53,7 @@ const captcha = [
     RegisterComponent,
     UsersListComponent,
     HomeComponent,
-    ParseDNIPipe,
+    TurnApplicationComponent,
   ],
   imports: [
     BrowserModule,

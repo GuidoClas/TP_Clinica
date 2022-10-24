@@ -1,4 +1,3 @@
-<div (click)="onClick(usuario)" class="d-flex flex-row text-center align-items-center justify-content-between hover px-2 py-2">
-    <img height="100" [src]="usuario?.imagenUnoUrl" [alt]="usuario?.email">
-    <h4 class="fw-bold">{{usuario?.email}}</h4>
-</div>
+<button mat-fab class="bg-dark" aria-label="Ver usuarios de inicio rapido" (click)="onClick(usuario)" style="overflow:hidden;">
+    <img class="" height="35" width="50" [src]="usuario?.imagenUnoUrl" [alt]="usuario?.email">
+</button>

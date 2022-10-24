@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   public mostrarUsuarios : boolean = false;
   public usuariosCargados : boolean = false;
 
-  public admins : any[] = [];
+  public admin : any;
   public especialistas : any[] = [];
   public pacientes : any[] = [];
 
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       } );
 
     
-    this.admins = (await this.AuthService.getAdmins()).slice(0, 2);
+    this.admin = (await this.AuthService.getAdmins())[0];
     this.especialistas = (await this.AuthService.getEspecialistas()).slice(0, 2);
     this.pacientes = (await this.AuthService.getPacientes()).slice(0, 3);
     this.usuariosCargados = true;

@@ -32,6 +32,11 @@
           </ul>
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
+        <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon !== '1'" class="nav-item">
+          <a class="nav-link text-white mx-2" routerLink="request-turn">Solicitar Turno </a>
+        </li>
+        <!--SECCIÓN USUARIOS PACIENTE -->
+        <!--END SECCIÓN USUARIOS PACIENTE -->
       </ul>
       <ul class="navbar-nav">
         <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">

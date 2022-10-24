@@ -41,35 +41,34 @@
           
         </form>
     </main>
-    <div id="seleccion-usuario-container">
+    <div class="">
         <div id="seleccion-usuario-carga" *ngIf="!this.usuariosCargados">
           <img class="carga-img" src="../../../assets/spinner-loading.svg" alt="Cargando Lista de Usuarios">
         </div>
-        <div id="opciones-seleccion-usuario" *ngIf="this.usuariosCargados">
-          <button class="align-self-center" [matMenuTriggerFor]="usuariosMenu" mat-flat-button color="accent" aria-label="Ver usuarios de inicio rapido">
-            <mat-icon>supervisor_account</mat-icon>
-          </button>
-      
-          <mat-menu class="px-2 w-100" #usuariosMenu="matMenu" yPosition="below" xPosition="before">
-            <h3 mat-subheader>Administradores</h3>
-            <app-users-list
-            *ngFor="let usuario of this.admins"
-            [usuario]="usuario"
-            (seleccionado)="this.onSeleccionarParaInicioRapido($event)"></app-users-list>
-            <mat-divider></mat-divider>
-            <h3 mat-subheader>Especialistas</h3>
-            <app-users-list
-              *ngFor="let usuario of this.especialistas"
-              [usuario]="usuario"
-              (seleccionado)="this.onSeleccionarParaInicioRapido($event)"></app-users-list>
-            <mat-divider></mat-divider>
-            <h3 mat-subheader>Pacientes</h3>
-            <app-users-list
-              *ngFor="let usuario of this.pacientes"
-              [usuario]="usuario"
-              (seleccionado)="this.onSeleccionarParaInicioRapido($event)" ></app-users-list>
-          </mat-menu>
-        </div>
+        <app-users-list
+            [usuario]="this.admin"
+            (seleccionado)="this.onSeleccionarParaInicioRapido($event)">
+        </app-users-list>
+        <app-users-list
+              [usuario]="this.especialistas[0]"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)">
+        </app-users-list>
+        <app-users-list
+              [usuario]="this.especialistas[1]"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)">
+        </app-users-list>
+        <app-users-list
+              [usuario]="this.pacientes[0]"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)">
+        </app-users-list>
+        <app-users-list
+              [usuario]="this.pacientes[1]"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)" >
+        </app-users-list>
+        <app-users-list
+              [usuario]="this.pacientes[2]"
+              (seleccionado)="this.onSeleccionarParaInicioRapido($event)" >
+        </app-users-list>
     </div>
 </div>
   

@@ -47,11 +47,14 @@
         padding: 1rem;
         cursor: pointer;
         margin: auto;
+        border: solid 2px;
+        border-color: wheat;
+        border-radius: 50%;
     }
     
     .full-screen > .img:hover {
         background-color: rgba(0, 0, 0, .1);
         box-sizing: border-box;
         padding: 3rem;
-        border-radius: 10% 0 10% 0;
+        border-radius: 50%;
     }
