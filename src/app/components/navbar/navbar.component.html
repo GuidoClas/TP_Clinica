@@ -23,8 +23,8 @@
         </li>
         <!--SECCIÓN USUARIOS ADMIN -->
         <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon === '0'" class="nav-item dropdown">
-          <a class="nav-link text-white mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Usuarios
+          <a class="nav-link text-white mx-2 dropdown-toggle d-flex align-items-center justify-content-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon>supervisor_account</mat-icon>Usuarios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" routerLink="/admin/create">Alta de Administrador</a></li>
@@ -33,14 +33,17 @@
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
         <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon !== '1'" class="nav-item">
-          <a class="nav-link text-white mx-2" routerLink="request-turn">Solicitar Turno </a>
+          <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="request-turn"><mat-icon>add_circle</mat-icon>Solicitar Turno </a>
+        </li>
+        <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
+          <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="profile"><mat-icon>account_circle</mat-icon>Mi Perfil</a>
         </li>
         <!--SECCIÓN USUARIOS PACIENTE -->
         <!--END SECCIÓN USUARIOS PACIENTE -->
       </ul>
       <ul class="navbar-nav">
         <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
-          <a class="nav-link text-white mx-2" (click)="this.onLogout()">Salir</a>
+          <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" (click)="this.onLogout()"><mat-icon>exit_to_app</mat-icon>Salir</a>
         </li>
       </ul>
     </div>

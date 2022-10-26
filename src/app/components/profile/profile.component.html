@@ -1,0 +1,139 @@
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-6 col-md-12">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-12 bg-c-lite-green user-profile">
+              <div class="card-block text-center">
+                <div class="m-b-25">
+                  <img
+                    [src]="this.user.imagenUnoUrl" [alt]="this.user.email"
+                    class="img-radius"
+                    height="80"
+                    width="80"
+                  />
+                </div>
+                <h6 class="f-w-600">{{this.user.nombre + " " + this.user.apellido}}</h6> <!-- USAR UN PIPE ACÁ -->
+                <p *ngIf="this.user.razon === '2'">{{this.user.obraSocial}}</p>
+                <p *ngIf="this.user.razon === '1'">{{this.user.especialidad}}</p>
+                <p *ngIf="this.user.razon === '0'">Administrador</p>
+                <i
+                  class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"
+                ></i>
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="card-block">
+                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Mis datos</h6>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Email</p>
+                    <h6 class="text-muted f-w-400">{{this.user.email}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">DNI</p>
+                    <h6 class="text-muted f-w-400">{{this.user.dni}}</h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Edad</p>
+                    <h6 class="text-muted f-w-400">{{this.user.edad}}</h6>
+                  </div>
+                  <div *ngIf="this.user.razon === '2'" class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Obra Social</p>
+                    <h6 class="text-muted f-w-400">{{this.user.obraSocial}}</h6>
+                  </div>
+                  <div *ngIf="this.user.razon === '1'" class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Médico Especialista</p>
+                    <h6 class="text-muted f-w-400">{{this.user.especialidad}}</h6>
+                  </div>
+                  <div *ngIf="this.user.razon === '0'" class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Administrador Del Sistema</p>
+                  </div>
+                </div>
+                <div *ngIf="this.user.razon === '1'">
+                  <h6 class="p-b-5 b-b-default f-w-600">
+                    Horario Disponible
+                  </h6>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="date" class="form-label text-white">
+                        Desde
+                      </label>
+                      <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMin">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="date" class="form-label text-white">
+                        Hasta
+                      </label>
+                      <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMax">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-lg btn-warning mt-2" (click)="this.actualizarHorario()">Actualizar horario</button>
+                    <span>{{this.message}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="container custom-container mt-3">
+    <div *ngIf="!this.user.imagenDosUrl && this.user.imagenUnoUrl" class="d-flex justify-content-center align-items-center mt-2">
+        <img [src]="this.user.imagenUnoUrl" [alt]="this.user.email" class="img-fluid custom-img">
+    </div>
+    <div *ngIf="this.user.imagenDosUrl" class="d-flex flex-row justify-content-between align-items-center mt-2">
+        <img [src]="this.user.imagenUnoUrl" [alt]="this.user.email" class="img-fluid custom-img">
+        <img *ngIf="this.user.imagenDosUrl" [src]="this.user.imagenDosUrl" [alt]="this.user.email" class="img-fluid custom-img">
+    </div>
+    <hr>
+    <label class="form-label mb-1 text-white" for="nombre">
+        Nombre
+    </label>
+    <input class="form-control mb-1" disabled [value]="this.user.nombre" type="text" name="nombre" id="nombre">
+    
+    <label class="form-label text-white" for="apellido">
+        Apellido
+    </label>
+    <input class="form-control mb-1" disabled [value]="this.user.apellido" type="text" name="apellido" id="apellido">
+    
+    <label class="form-label text-white" for="email">
+        Email
+    </label>
+    <input class="form-control mb-1" disabled [value]="this.user.email" type="text" name="email" id="email">
+    
+    <label class="form-label text-white" for="dni">
+        DNI
+    </label>
+    <input class="form-control mb-1" disabled [value]="this.user.dni" type="text" name="dni" id="dni">
+    
+    <div *ngIf="this.user.razon === '1' && this.user.especialidad">
+        <label class="form-label text-white" for="especialidad">
+            Especialidad
+        </label>
+        <input type="text" class="form-control mb-1" disabled [value]="this.user.especialidad">
+    </div>
+
+    <div style="margin-top: 1rem; margin-bottom: 1rem" *ngIf="this.user.razon === '1'">
+        <h2 class="text-white">Horario disponible</h2>
+        <label for="date" class="form-label text-white">
+            Desde
+        </label>
+        <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMin">
+        <label for="date" class="form-label text-white">
+            Hasta
+        </label>
+        <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMax">
+        <button class="btn btn-lg btn-warning mt-2" (click)="this.actualizarHorario()">Actualizar horario</button>
+        <span>{{this.message}}</span>
+    </div>
+</div>
+
+-->

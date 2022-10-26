@@ -28,6 +28,7 @@ import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSet
 import { HomeComponent } from './components/home/home.component';
 import { ParseDNIPipe } from './pipes/DNI/parse-dni.pipe';
 import { TurnApplicationComponent } from './components/turn-application/turn-application.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const material = [
   MatCardModule,
@@ -54,6 +55,7 @@ const captcha = [
     UsersListComponent,
     HomeComponent,
     TurnApplicationComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
