@@ -41,6 +41,10 @@ const routes: Routes = [
     data: { roles: ["0"] }
   },
   { 
+    path: 'turns', 
+    loadChildren: () => import('./turns/turns.module').then(m => m.TurnsModule),
+  },
+  { 
     path: '**', 
     redirectTo: 'home', 
     pathMatch: 'full' 

@@ -25,7 +25,7 @@
     </div>
     <div *ngIf="this.paso2 && this.dias.length > 0" class="text-center text-white">
         <h2>Elija un dia</h2>
-        <ul class="unstyled-list d-flex justify-content-around align-items-center">
+        <ul class="d-flex flex-wrap" style="list-style: none; gap: 30px;">
             <li class="mb-1" *ngFor="let dia of this.dias" >
                 <button 
                     class="btn btn-warning btn-min-width" 
@@ -59,7 +59,7 @@
             </li>
         </ul>
     </div>
-    <div *ngIf="this.paciente && this.horario" class="w-100 mb-2 text-center text-white">
+    <div *ngIf="this.paciente && this.horario" class="w-100 mt-3 mb-2 text-center text-white">
         <button 
             class="btn btn-warning"
             (click)="this.solicitarTurno()">Solicitar Turno</button>

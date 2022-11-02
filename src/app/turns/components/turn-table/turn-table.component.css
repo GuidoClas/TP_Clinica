@@ -1,0 +1,9 @@
+.container {
+    display: grid;
+    place-items: center;
+    background-color: rgba(2, 2, 2, 0.7);
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+}

@@ -1,0 +1,13 @@
+<div class="d-flex flex-row justify-content-center my-2">
+    <button class="btn btn-warning" (click)="this.filtrarPorEspecialista()">Filtrar Por Especialista</button>
+    <button class="btn btn-warning" (click)="this.filtrarPorTurno()">Filtrar Por Campo Turno</button>
+</div>
+<div class="d-flex flex-column align-items-between">
+    <app-specialist-filter
+        *ngIf="this.mostrarEspecialista"
+        (especialista)="this.elegidoEspecialista($event)" 
+    >
+    </app-specialist-filter>
+    
+    <app-turn-table [turns]="this.turns"></app-turn-table>
+</div>

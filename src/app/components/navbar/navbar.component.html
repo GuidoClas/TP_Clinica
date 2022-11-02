@@ -10,7 +10,7 @@
     
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item" *ngIf="this.authService.userLogged === undefined" >
+        <li class="nav-item" *ngIf="this.user === undefined" >
           <a class="nav-link text-white mx-2" routerLink="login">Ingresar</a>
         </li>
         <li class="nav-item d-none d-lg-block">
@@ -18,11 +18,11 @@
             <img src="../../../assets/heartbeat.gif" height="80" />
           </a>
         </li>
-        <li class="nav-item" *ngIf="this.authService.userLogged === undefined" >
+        <li class="nav-item" *ngIf="this.user === undefined" >
           <a class="nav-link text-white mx-2" routerLink="register">Registrarse</a>
         </li>
         <!--SECCIÓN USUARIOS ADMIN -->
-        <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon === '0'" class="nav-item dropdown">
+        <li *ngIf="this.user !== undefined && this.user.razon === '0'" class="nav-item dropdown">
           <a class="nav-link text-white mx-2 dropdown-toggle d-flex align-items-center justify-content-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <mat-icon>supervisor_account</mat-icon>Usuarios
           </a>
@@ -32,17 +32,20 @@
           </ul>
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
-        <li *ngIf="this.authService.userLogged !== undefined && this.authService.userLogged.razon !== '1'" class="nav-item">
+        <li *ngIf="this.user !== undefined && this.user.razon !== '1'" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="request-turn"><mat-icon>add_circle</mat-icon>Solicitar Turno </a>
         </li>
-        <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
+        <li *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="profile"><mat-icon>account_circle</mat-icon>Mi Perfil</a>
         </li>
-        <!--SECCIÓN USUARIOS PACIENTE -->
+        <!--SECCIÓN USUARIOS PACIENTE - ESPECIALISTA - ADMIN -->
+        <li *ngIf="this.user !== undefined" class="nav-item">
+          <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="turns"><mat-icon>account_circle</mat-icon>{{ (this.user.razon === '0') ? 'Turnos' : 'Mis Turnos' }}</a>
+        </li>
         <!--END SECCIÓN USUARIOS PACIENTE -->
       </ul>
       <ul class="navbar-nav">
-        <li *ngIf="this.authService.userLogged !== undefined" class="nav-item">
+        <li *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" (click)="this.onLogout()"><mat-icon>exit_to_app</mat-icon>Salir</a>
         </li>
       </ul>

@@ -1,0 +1,27 @@
+<div class="d-flex flex-column justify-content-between text-center">
+    <div class="text-center">
+        <h2>Elija una especialidad</h2>
+        <ul class="unstyled-list d-flex justify-content-between">
+            <li class="mb-1" *ngFor="let especialidad of this.specialties" >
+                <button 
+                    class="btn btn-warning" 
+                    (click)="this.elegirEspecialidad( especialidad.tipo )">
+                    {{especialidad.tipo}}
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center">
+        <h2>Elija un especialista</h2>
+        <ul class="unstyled-list d-flex justify-content-between">
+            <li class="mb-1" *ngFor="let especialista of this.specialists" >
+                <button 
+                    class="btn btn-warning" 
+                    (click)="this.elegirEspecialista( especialista )">
+                    {{especialista.nombre + " " + especialista.apellido}}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</div>

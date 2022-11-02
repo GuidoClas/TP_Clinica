@@ -48,6 +48,10 @@ export class AuthService {
 
     usuarioDB.email = usuario.email;
     this.sesionIniciada.emit(usuario);
+
+    //Guardo en Storage para preservar la sesión.
+    sessionStorage.setItem("userLogged", JSON.stringify(usuarioDB));
+
     this.userLogged = usuarioDB;
     this.logger( usuarioDB.email, 'Inicio de Sesion' );
     return true;
