@@ -66,6 +66,8 @@ export class CreateUserComponent implements OnInit {
       this.imagenUnoUrl = URL;
       this.habilitarBoton = true;
     } ) );
+
+    
   }
   
   onSubmit ( event : Event ) {

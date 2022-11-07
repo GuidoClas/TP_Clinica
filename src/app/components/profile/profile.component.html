@@ -53,6 +53,19 @@
                     <p class="m-b-10 f-w-600">Administrador Del Sistema</p>
                   </div>
                 </div>
+                <div *ngIf="this.user.razon === '2'">
+                  <h6 class="p-b-5 b-b-default f-w-600">
+                    Mi historia clínica
+                  </h6>
+                  <div class="row">
+                    <button
+                        mat-fab
+                        class="bg-dark"
+                        (click)="this.downloadClinicHistorial()">
+                        <mat-icon style="color: white;">cloud_download</mat-icon>
+                    </button>
+                  </div>
+                </div>
                 <div *ngIf="this.user.razon === '1'">
                   <h6 class="p-b-5 b-b-default f-w-600">
                     Horario Disponible
@@ -84,56 +97,4 @@
     </div>
   </div>
 </div>
-<!--
-<div class="container custom-container mt-3">
-    <div *ngIf="!this.user.imagenDosUrl && this.user.imagenUnoUrl" class="d-flex justify-content-center align-items-center mt-2">
-        <img [src]="this.user.imagenUnoUrl" [alt]="this.user.email" class="img-fluid custom-img">
-    </div>
-    <div *ngIf="this.user.imagenDosUrl" class="d-flex flex-row justify-content-between align-items-center mt-2">
-        <img [src]="this.user.imagenUnoUrl" [alt]="this.user.email" class="img-fluid custom-img">
-        <img *ngIf="this.user.imagenDosUrl" [src]="this.user.imagenDosUrl" [alt]="this.user.email" class="img-fluid custom-img">
-    </div>
-    <hr>
-    <label class="form-label mb-1 text-white" for="nombre">
-        Nombre
-    </label>
-    <input class="form-control mb-1" disabled [value]="this.user.nombre" type="text" name="nombre" id="nombre">
-    
-    <label class="form-label text-white" for="apellido">
-        Apellido
-    </label>
-    <input class="form-control mb-1" disabled [value]="this.user.apellido" type="text" name="apellido" id="apellido">
-    
-    <label class="form-label text-white" for="email">
-        Email
-    </label>
-    <input class="form-control mb-1" disabled [value]="this.user.email" type="text" name="email" id="email">
-    
-    <label class="form-label text-white" for="dni">
-        DNI
-    </label>
-    <input class="form-control mb-1" disabled [value]="this.user.dni" type="text" name="dni" id="dni">
-    
-    <div *ngIf="this.user.razon === '1' && this.user.especialidad">
-        <label class="form-label text-white" for="especialidad">
-            Especialidad
-        </label>
-        <input type="text" class="form-control mb-1" disabled [value]="this.user.especialidad">
-    </div>
 
-    <div style="margin-top: 1rem; margin-bottom: 1rem" *ngIf="this.user.razon === '1'">
-        <h2 class="text-white">Horario disponible</h2>
-        <label for="date" class="form-label text-white">
-            Desde
-        </label>
-        <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMin">
-        <label for="date" class="form-label text-white">
-            Hasta
-        </label>
-        <input type="time" class="form-control" id="date" placeholder="dd/mm/yyyy hh:mm:ss" [(ngModel)]="this.horarioMax">
-        <button class="btn btn-lg btn-warning mt-2" (click)="this.actualizarHorario()">Actualizar horario</button>
-        <span>{{this.message}}</span>
-    </div>
-</div>
-
--->

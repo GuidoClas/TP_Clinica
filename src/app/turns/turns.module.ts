@@ -12,6 +12,7 @@ import { TurnTableComponent } from './components/turn-table/turn-table.component
 import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpecialistFilterComponent } from './components/specialist-filter/specialist-filter.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SpecialistFilterComponent } from './components/specialist-filter/specia
     SpecialistComponent,
     PatientComponent,
     TurnTableComponent,
-    SpecialistFilterComponent
+    SpecialistFilterComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

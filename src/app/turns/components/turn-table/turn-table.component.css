@@ -6,4 +6,6 @@
     left: 0;
     right: 0;
     padding: 2rem;
+    overflow: auto;
+    height: 35rem;
 }

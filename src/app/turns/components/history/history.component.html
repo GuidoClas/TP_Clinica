@@ -1,0 +1,104 @@
+<form
+[formGroup]="this.form"
+(ngSubmit)="this.submitHistoriaClinica($event)">
+    <div class="text-center text-white">
+        <h2 class="mb-3">Historia Clinica</h2>
+    </div>
+    <div class="d-flex flex-row justify-content-between text-white">
+        <div>
+            <label for="height" class="form-label">Altura</label>
+            <input formControlName="altura" type="text" class="form-control" id="height" placeholder="Altura">
+            <div *ngIf="this.form.controls.altura.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.altura.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar numeros.
+            </div>
+            <div *ngIf="this.form.controls.altura.errors?.min" class="text-danger">
+            El valor m&iacute;nimo ingresable es: {{this.ALTURA_MINIMA}}
+            </div>
+            <div *ngIf="this.form.controls.altura.errors?.max" class="text-danger">
+            El valor m&aacute;ximo ingresable es: {{this.ALTURA_MAXIMA}}
+            </div>
+        </div>
+        <div>
+            <label for="weight" class="form-label">Peso</label>
+            <input formControlName="peso" type="text" class="form-control" id="weight" placeholder="Peso">
+            <div *ngIf="this.form.controls.peso.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.peso.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar numeros.
+            </div>
+            <div *ngIf="this.form.controls.peso.errors?.min" class="text-danger">
+            El valor m&iacute;nimo ingresable es: {{this.PESO_MINIMO}}
+            </div>
+            <div *ngIf="this.form.controls.peso.errors?.max" class="text-danger">
+            El valor m&aacute;ximo ingresable es: {{this.PESO_MAXIMO}}
+            </div>
+        </div>
+        <div>
+            <label for="temperature" class="form-label">Temperatura</label>
+            <input formControlName="temperatura" type="text" class="form-control" id="temperature" placeholder="Temperatura">
+            <div *ngIf="this.form.controls.temperatura.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.temperatura.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar numeros.
+            </div>
+            <div *ngIf="this.form.controls.temperatura.errors?.min" class="text-danger">
+            El valor m&iacute;nimo ingresable es: {{this.TEMPERATURA_MINIMA}}
+            </div>
+            <div *ngIf="this.form.controls.temperatura.errors?.max" class="text-danger">
+            El valor m&aacute;ximo ingresable es: {{this.TEMPERATURA_MAXIMA}}
+            </div>
+        </div>
+        <div>
+            <label for="pressure" class="form-label">Presi&oacute;n</label>
+            <input formControlName="presion" type="text" class="form-control" id="pressure" placeholder="Presi&oacute;n">
+            <div *ngIf="this.form.controls.presion.errors?.required" class="text-danger">
+            Este valor es requerido.
+            </div>
+            <div *ngIf="this.form.controls.presion.errors?.pattern" class="text-danger">
+            Solo se pueden ingresar letras. Pueden incluirse espacios.
+            </div>
+            <div *ngIf="this.form.controls.presion.errors?.min" class="text-danger">
+            El valor m&iacute;nimo ingresable es: {{this.PRESION_MINIMA}}
+            </div>
+            <div *ngIf="this.form.controls.presion.errors?.max" class="text-danger">
+            El valor m&aacute;ximo ingresable es: {{this.PRESION_MAXIMA}}
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="d-flex flex-row justify-content-between text-white">
+        <div>  
+            <label for="n-d-1">Nombre Dato Dinamico Uno</label>
+            <input id="n-d-1" formControlName="datoDinamicoUnoNombre" type="text" class="form-control">
+            
+            <label for="v-d-1">Valor Dato Dinamico Uno</label>
+            <input id="v-d-1" formControlName="datoDinamicoUnoValor" type="text" class="form-control">
+        </div>
+
+        <div>
+            <label for="n-d-2">Nombre Dato Dinamico Dos</label>
+            <input id="n-d-2" formControlName="datoDinamicoDosNombre" type="text" class="form-control">
+            
+            <label for="v-d-2">Valor Dato Dinamico Dos</label>
+            <input id="v-d-2" formControlName="datoDinamicoDosValor" type="text" class="form-control">
+        </div>
+        
+        <div>
+            <label for="n-d-3">Nombre Dato Dinamico Tres</label>
+            <input id="n-d-3" formControlName="datoDinamicoTresNombre" type="text" class="form-control">
+            
+            <label for="v-d-3">Valor Dato Dinamico Tres</label>
+            <input id="v-d-3" formControlName="datoDinamicoTresValor" type="text" class="form-control">
+        </div>
+    </div>
+
+    <div class="text-center p-1">
+        <button [disabled]="this.form.disabled" class="btn btn-warning" type="submit">Subir Historial</button>
+    </div>
+</form>

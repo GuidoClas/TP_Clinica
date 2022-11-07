@@ -13,3 +13,7 @@
 .scroll-y {
     overflow-y: scroll;
 }
+
+.box {
+    /*background-color: rgba(2, 2, 2, 0.7);*/
+}

@@ -13,6 +13,7 @@
         <th class="text-center">Rese&ntilde;a Cancelado</th>
         <th class="text-center">Cancelado</th>
         <th class="text-center">Finalizado</th>
+        <th *ngIf="this.user?.razon !== '2'" class="text-center">Historia Clínica</th>
       </tr>
     </thead>
     <tbody>
@@ -135,9 +136,23 @@
             >{{ (this.turno.finalizado || this.turno.cancelado) ? 'Finalizado' : 'Pendiente' }}</span>
           </label>
         </td>
+        <td *ngIf="this.user?.razon !== '2'">
+
+          <button 
+              *ngIf="turno.finalizado"
+              class="btn btn-warning"
+              (click)="this.settearFinalizado(turno)">
+              Historia Clinica
+          </button>
+      </td>
       </tr>
     </tbody>
   </table>
+
+  <div *ngIf="this.idFinalizado">
+    <app-history
+        [idTurno]="this.idFinalizado"></app-history>
+  </div>
 
   <!-- Modal Reseña/Encuesta -->
   <div
