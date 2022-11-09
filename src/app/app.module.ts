@@ -29,6 +29,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ParseDNIPipe } from './pipes/DNI/parse-dni.pipe';
 import { TurnApplicationComponent } from './components/turn-application/turn-application.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PatientsComponent } from './components/patients/patients.component';
 
 const material = [
   MatCardModule,
@@ -56,6 +57,7 @@ const captcha = [
     HomeComponent,
     TurnApplicationComponent,
     ProfileComponent,
+    PatientsComponent,
   ],
   imports: [
     BrowserModule,

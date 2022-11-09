@@ -1,0 +1,12 @@
+.jumbotron {
+    max-width: 250px;
+}
+
+.grid-list {
+    list-style: none;
+
+    display: grid;
+    height: 200px;
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-gap: .1rem;
+}

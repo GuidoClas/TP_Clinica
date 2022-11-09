@@ -28,7 +28,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" routerLink="/admin/create">Alta de Administrador</a></li>
-            <li><a class="dropdown-item" routerLink="/admin/users">Aprobar Especialistas</a></li>
+            <li><a class="dropdown-item" routerLink="/admin/users">Usuarios</a></li>
           </ul>
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
@@ -37,6 +37,9 @@
         </li>
         <li *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="profile"><mat-icon>account_circle</mat-icon>Mi Perfil</a>
+        </li>
+        <li *ngIf="this.user !== undefined && this.user.razon === '1'" class="nav-item">
+          <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="patients"><mat-icon>account_circle</mat-icon>Pacientes</a>
         </li>
         <!--SECCIÓN USUARIOS PACIENTE - ESPECIALISTA - ADMIN -->
         <li *ngIf="this.user !== undefined" class="nav-item">

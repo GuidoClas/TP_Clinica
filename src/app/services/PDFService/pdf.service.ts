@@ -17,7 +17,11 @@ export class PDFService {
     doc.text( "Fecha Emisión: " + fecha, 80, 35 );
     doc.text( nombre.split('@')[0], 80, 55 );
 
-    doc.table( 30, 100, data, Object.keys( data[0] ), { autoSize: false, margins: 30, fontSize: 42 } );
+    if(data.length > 0){
+      doc.table( 30, 100, data, Object.keys( data[0] ), { autoSize: false, margins: 30, fontSize: 42 } );
+    } else {
+      doc.text( "No se ha cargado la historia clínica todavía.", 100, 100 );
+    }
     doc.save( nombre );
   }
 }

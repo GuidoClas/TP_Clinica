@@ -28,22 +28,11 @@ export class SpecialistComponent implements OnInit {
     this.turns = await this.turnService.getBySpecialist( this.user?.email );
   }
 
-  public async elegidoEspecialista ( especialistaMail : string ) {
-    this.turns = await this.turnService.getBySpecialist( especialistaMail );
-  }
-
   public elegidoTurnos ( turns : Turn[] ) {
     this.turns = turns;
   }
 
-  public filtrarPorEspecialista() {
-    this.turns = [];
-    this.mostrarEspecialista = !this.mostrarEspecialista;
-    this.mostrarTurno = false;
-  }
-
   public filtrarPorTurno() {
-    this.turns= [];
     this.mostrarTurno = !this.mostrarTurno;
     this.mostrarEspecialista = false;
   }

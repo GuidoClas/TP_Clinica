@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PatientsComponent } from './components/patients/patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TurnApplicationComponent } from './components/turn-application/turn-application.component';
@@ -39,6 +40,12 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [RoleGuard],
     data: { roles: ["0"] }
+  },
+  { 
+    path: 'patients', 
+    component: PatientsComponent,
+    canActivate: [RoleGuard],
+    data: { roles: ["0","1"] }
   },
   { 
     path: 'turns', 

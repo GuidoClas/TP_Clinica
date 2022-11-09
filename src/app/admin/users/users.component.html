@@ -1,5 +1,8 @@
 <div class="mt-5 scrollable">
-    <table *ngIf="this.isAdmin" class="table table-striped table-responsive table-bordered">
+    <div class="d-flex flex-row justify-content-center my-2">
+        <button class="btn btn-warning" (click)="this.onFilterUsers()">{{ this.isSpecialistFilter ? "Ver Pacientes" : "Ver Especialistas"}}</button>
+    </div>
+    <table *ngIf="this.isAdmin && this.isSpecialistFilter" class="table table-striped table-responsive table-bordered">
         <tr class="text-white">
             <th class="text-center">Foto</th>
             <th class="text-center">Nombre</th>
@@ -36,11 +39,49 @@
             <td *ngIf="(usuario.aprobado != undefined)">
                 <label class="hover" for="aprobado">
                     Aprobado:
-                    <input [checked]="this.usuarios[i].aprobado" (click)="this.onApproval(this.usuarios[i], $event)" type="checkbox" name="aprobado" id="aprobado">
+                    <input [checked]="this.usuarios![i].aprobado" (click)="this.onApproval(this.usuarios![i], $event)" type="checkbox" name="aprobado" id="aprobado">
                 </label>
             </td>
             <td>
                 <span *ngIf=" (usuario.aprobado != undefined && this.actualizado) " class="text-success">Especialidad actualizada!</span>
+            </td>
+        </tr>
+    </table>
+    <table *ngIf="this.isAdmin && !this.isSpecialistFilter" class="table table-striped table-responsive table-bordered">
+        <tr class="text-white">
+            <th class="text-center">Foto</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Apellido</th>
+            <th class="text-center">Edad</th>
+            <th class="text-center">DNI</th>
+            <th class="text-center">Mail</th>
+            <th class="text-center">Historia Clínica</th>
+        </tr>
+        <tr class="text-white" *ngFor="let usuario of this.usuarios; let i = index">
+            <td>
+                <img class="img-fluid img-thumbnail rounded m-w-300" [src]="usuario.imagenUnoUrl" alt="Foto de perfil de Usuario">
+            </td>
+            <td>
+                {{usuario.nombre}}
+            </td>
+            <td>
+                {{usuario.apellido}}
+            </td>
+            <td>
+                {{usuario.edad}}
+            </td>
+            <td>
+                {{usuario.dni | parseDNI}}
+            </td>
+            <td>
+                {{usuario.email}}
+            </td>
+            <td>
+                <button 
+                    class="btn btn-warning text-white"
+                    (click)="this.downloadHistorial(usuario)">
+                    Descargar
+                </button>
             </td>
         </tr>
     </table>

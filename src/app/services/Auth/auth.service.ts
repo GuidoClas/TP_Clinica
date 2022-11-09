@@ -136,9 +136,10 @@ export class AuthService {
   }  
 
   async getUsuariosAtendidosPorEspecialista ( especialistaEmail : string ) {
-    const collectionTurnos = "turnos";
+    const collectionTurnos = "turns";
     const pacientesMails = await this.db.collection( collectionTurnos ).ref
                                 .where( "especialista", "==", especialistaEmail )
+                                .where( "finalizado", "==", true )
                                 .get()
                                 .then( snapshots => snapshots.docs.map( snapshot => snapshot.data() ) )
                                 .then( (allData) => allData.map( (data : any) => data.paciente ) )

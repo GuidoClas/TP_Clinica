@@ -13,6 +13,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpecialistFilterComponent } from './components/specialist-filter/specialist-filter.component';
 import { HistoryComponent } from './components/history/history.component';
+import { TurnFilterComponent } from './components/turn-filter/turn-filter.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HistoryComponent } from './components/history/history.component';
     PatientComponent,
     TurnTableComponent,
     SpecialistFilterComponent,
-    HistoryComponent
+    HistoryComponent,
+    TurnFilterComponent
   ],
   imports: [
     CommonModule,

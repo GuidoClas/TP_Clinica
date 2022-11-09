@@ -1,0 +1,28 @@
+.scrollable {
+    overflow: scroll;
+    display: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: rgba(2, 2, 2, 0.7);
+    height: 650px;
+    width: 100%;
+}
+
+.m-w-300 {
+    max-width: 100px;
+}
+
+.hover:hover {
+    cursor: pointer;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2.5rem 0;
+    margin: 2.5rem .5rem;
+    height: 90%;
+}

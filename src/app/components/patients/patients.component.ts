@@ -6,44 +6,23 @@ import { PDFService } from 'src/app/services/PDFService/pdf.service';
 import { TurnService } from 'src/app/services/TurnService/turn.service';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-patients',
+  templateUrl: './patients.component.html',
+  styleUrls: ['./patients.component.css']
 })
-export class UsersComponent implements OnInit {
+export class PatientsComponent implements OnInit {
 
   public user? : Usuario;
   public usuarios? : any[] = [];
-  public actualizado : boolean = false;
-
-  public isAdmin : boolean = false;
-  public isSpecialistFilter : boolean = true;
-  public paciente? : Usuario;
 
   constructor( private AuthService: AuthService, private turnService: TurnService, private pdfService: PDFService ) {
     this.user = this.AuthService.userLogged;
   }
 
   async ngOnInit(): Promise<void> {
-    this.usuarios = await this.AuthService.getEspecialistas();
-    this.isAdmin = true;  
+    this.usuarios = await this.AuthService.getUsuariosAtendidosPorEspecialista(this.user?.email!);
   }
 
-  onApproval ( usuario : Usuario, event : any ) {
-    usuario.aprobado = event.target.checked;
-    this.AuthService.actualizarUsuario(usuario).then( () => this.actualizado = true );
-  }
-
-  async onFilterUsers(){
-    this.isSpecialistFilter = !this.isSpecialistFilter;
-    if(!this.isSpecialistFilter){
-      this.usuarios = undefined;
-      this.usuarios = await this.AuthService.getPacientes();
-    } else {
-      this.usuarios = undefined;
-      this.usuarios = await this.AuthService.getEspecialistas();
-    }
-  }
 
   async downloadHistorial(user : Usuario){
     const nombreDoc = user.email + ".pdf";

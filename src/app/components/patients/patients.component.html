@@ -1,0 +1,39 @@
+<div class="mt-5 scrollable">
+    <div *ngIf="this.usuarios === undefined || this.usuarios.length === 0">
+        <span class="text-center text-white">Todavía no atendiste ningún usuario</span>
+    </div>
+    <table *ngIf="this.usuarios !== undefined && this.usuarios.length > 0" class="table table-striped table-responsive table-bordered">
+        <tr class="text-white">
+            <th class="text-center">Foto</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Apellido</th>
+            <th class="text-center">Edad</th>
+            <th class="text-center">Mail</th>
+            <th class="text-center">Historia Clínica</th>
+        </tr>
+        <tr class="text-white" *ngFor="let usuario of this.usuarios; let i = index">
+            <td>
+                <img class="img-fluid img-thumbnail rounded m-w-300" [src]="usuario.imagenUnoUrl" alt="Foto de perfil de Usuario">
+            </td>
+            <td>
+                {{usuario.nombre}}
+            </td>
+            <td>
+                {{usuario.apellido}}
+            </td>
+            <td>
+                {{usuario.edad}}
+            </td>
+            <td>
+                {{usuario.email}}
+            </td>
+            <td>
+                <button 
+                    class="btn btn-warning text-white"
+                    (click)="this.downloadHistorial(usuario)">
+                    Descargar
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
