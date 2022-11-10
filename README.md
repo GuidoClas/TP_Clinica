@@ -1,27 +1,45 @@
-# TPClinica
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+## 🚀 Acerca de la Clínica
+Proyecto encargado para dar soporte a una clínica online.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## 🛠 Tech Stack
+[![ANGULAR](https://img.shields.io/badge/Angular-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://img.shields.io/badge/Angular-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+-
+[![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+[![VSC](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ♠️ Features
 
-## Running end-to-end tests
+## Admin
+- Alta de administradores.
+- Aprobación de especialistas.
+- Acceso a historia clínica de pacientes.
+- Alta de turno para paciente.
+- Vista de turnos.
+- Mi perfil.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Especialista
+- Aceptar/Rechazar y Cancelar/Finalizar turnos.
+- Carga de historia clínica de pacientes con datos dinámicos.
+- Acceso a historia clínica de pacientes.
+- Reseñas de pacientes.
+- Vista de  Mis turnos.
+- Vista de  Turnos atendidos.
+- Mi perfil.
+- Actualizar horario de atención.
 
-## Further help
+## Paciente
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Solicitud de turno con elección de especialidad y especialista.
+- Vista de Mis Turnos.
+- Mi perfil.
+
+## Screens
+
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/login.PNG)
