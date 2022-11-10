@@ -11,11 +11,13 @@ import { RoleGuard } from './guards/role.guard';
 const routes: Routes = [
   { 
     path: 'login', 
-    component: LoginComponent
+    component: LoginComponent,
+    data: { animation: 'log-in-page' }
   },
   { 
     path: 'register', 
-    component: RegisterComponent, 
+    component: RegisterComponent,
+    data: { animation: 'sign-up-page' } 
   },
   { 
     path: 'home', 
