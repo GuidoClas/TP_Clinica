@@ -1,4 +1,3 @@
-
 ## 🚀 Acerca de la Clínica
 Proyecto encargado para dar soporte a una clínica online.
 
@@ -41,5 +40,48 @@ Proyecto encargado para dar soporte a una clínica online.
 - Mi perfil.
 
 ## Screens
-
+Login (todos)
 ![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/login.PNG)
+
+Registro (Especialista/Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/register.PNG)
+
+Form de Registro (Especialista/Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/register_form.PNG)
+
+Navbar Administrador (Administrador)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/navbar_adm.PNG)
+
+Alta de administrador (Administrador)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/addAdmin_adm.PNG)
+
+Aprobar especialista (Administrador)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/specialistApproval_adm.PNG)
+
+Navbar Especialista (Especialista)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/navbar_spec.PNG)
+
+Mis turnos (Especialista)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/misTurnos_spec.PNG)
+
+Pacientes atendidos (Especialista)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/pacientesAtendidos_spec.PNG)
+
+Navbar Paciente (Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/navbar_pac.PNG)
+
+Solicitar Turno 1 (Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/solicitarTurno_1.PNG)
+
+Solicitar Turno 2 (Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/solicitarTurno_2.PNG)
+
+Solicitar Turno 3 (Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/solicitarTurno_3.PNG)
+
+Solicitar Turno 4 (Paciente)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/solicitarTurno_4.PNG)
+
+Mi Perfil (Todos)
+![screen](https://github.com/GuidoClas/TP_Clinica/blob/master/Readme_screens/miPerfil.PNG)
+
