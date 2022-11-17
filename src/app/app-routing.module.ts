@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
+import { StatsComponent } from './components/stats/stats.component';
 import { TurnApplicationComponent } from './components/turn-application/turn-application.component';
 import { RoleGuard } from './guards/role.guard';
 
@@ -40,6 +41,12 @@ const routes: Routes = [
   { 
     path: 'admin', 
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [RoleGuard],
+    data: { roles: ["0"] }
+  },
+  { 
+    path: 'stats', 
+    component: StatsComponent,
     canActivate: [RoleGuard],
     data: { roles: ["0"] }
   },

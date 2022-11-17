@@ -1,0 +1,15 @@
+.table-maxh {
+    max-height: 18rem;
+    max-width: 500px;
+    overflow-y: scroll;
+}
+
+.selectable {
+    cursor: pointer;
+}
+
+.wrapper {
+    background-color: rgb(2, 2, 2, 0.8);
+    border: solid 2px;
+    border-color: wheat;
+}
