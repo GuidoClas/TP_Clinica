@@ -7,13 +7,15 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { AuthService } from '../services/Auth/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ParseDNIPipe } from '../pipes/DNI/parse-dni.pipe';
+import { ParsePasswordPipe } from '../pipes/Password/parse-password.pipe';
 
 
 @NgModule({
   declarations: [
     UsersComponent,
     CreateUserComponent,
-    ParseDNIPipe
+    ParseDNIPipe,
+    ParsePasswordPipe
   ],
   imports: [
     CommonModule,

@@ -34,7 +34,7 @@
                 {{usuario.email}}
             </td>
             <td>
-                {{usuario.contrasenia}}
+                {{usuario.contrasenia | parsePassword }}
             </td>
             <td *ngIf="(usuario.aprobado != undefined)">
                 <label class="hover" for="aprobado">

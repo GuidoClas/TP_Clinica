@@ -32,6 +32,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { BoldDirective } from './directives/bold.directive';
+import { GrowDirective } from './directives/grow.directive';
+import { HighlightDirective } from './directives/highlight.directive';
+import { ParseTimePipe } from './pipes/Time/parse-time.pipe';
 
 const material = [
   MatCardModule,
@@ -62,6 +66,10 @@ const captcha = [
     PatientsComponent,
     StatsComponent,
     BarChartComponent,
+    BoldDirective,
+    GrowDirective,
+    HighlightDirective,
+    ParseTimePipe,
   ],
   imports: [
     BrowserModule,

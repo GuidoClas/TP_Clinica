@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark p-2 bg-dark" style="opacity: 0.95;" id="headerNav">
   <div class="container-fluid">
-    <p class="text-white bold">CLINICA ONLINE</p>
+    <p appBold appGrow appHighlight class="text-white">CLINICA ONLINE</p>
     <a class="navbar-brand d-block d-lg-none" href="#">
       <img src="../../../assets/heartbeat.gif" height="80" />
     </a>
@@ -10,7 +10,7 @@
     
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item" *ngIf="this.user === undefined" >
+        <li appBold appGrow appHighlight class="nav-item" *ngIf="this.user === undefined" >
           <a class="nav-link text-white mx-2" routerLink="login">Ingresar</a>
         </li>
         <li class="nav-item d-none d-lg-block">
@@ -18,38 +18,38 @@
             <img src="../../../assets/heartbeat.gif" height="80" />
           </a>
         </li>
-        <li class="nav-item" *ngIf="this.user === undefined" >
+        <li appBold appGrow appHighlight class="nav-item" *ngIf="this.user === undefined" >
           <a class="nav-link text-white mx-2" routerLink="register">Registrarse</a>
         </li>
         <!--SECCIÓN USUARIOS ADMIN -->
-        <li *ngIf="this.user !== undefined && this.user.razon === '0'" class="nav-item dropdown">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined && this.user.razon === '0'" class="nav-item dropdown">
           <a class="nav-link text-white mx-2 dropdown-toggle d-flex align-items-center justify-content-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <mat-icon>supervisor_account</mat-icon>Usuarios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="/admin/create">Alta de Administrador</a></li>
-            <li><a class="dropdown-item" routerLink="/admin/users">Usuarios</a></li>
-            <li><a class="dropdown-item" routerLink="/stats">Estadísticas y gráficos</a></li>
+            <li appBold appGrow appHighlight><a class="dropdown-item" routerLink="/admin/create">Alta de Administrador</a></li>
+            <li appBold appGrow appHighlight><a class="dropdown-item" routerLink="/admin/users">Usuarios</a></li>
+            <li appBold appGrow appHighlight><a class="dropdown-item" routerLink="/stats">Estadísticas y gráficos</a></li>
           </ul>
         </li>
         <!--END SECCIÓN USUARIOS ADMIN -->
-        <li *ngIf="this.user !== undefined && this.user.razon !== '1'" class="nav-item">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined && this.user.razon !== '1'" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="request-turn"><mat-icon>add_circle</mat-icon>Solicitar Turno </a>
         </li>
-        <li *ngIf="this.user !== undefined" class="nav-item">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="profile"><mat-icon>account_circle</mat-icon>Mi Perfil</a>
         </li>
-        <li *ngIf="this.user !== undefined && this.user.razon === '1'" class="nav-item">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined && this.user.razon === '1'" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="patients"><mat-icon>account_circle</mat-icon>Pacientes</a>
         </li>
         <!--SECCIÓN USUARIOS PACIENTE - ESPECIALISTA - ADMIN -->
-        <li *ngIf="this.user !== undefined" class="nav-item">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" routerLink="turns"><mat-icon>account_circle</mat-icon>{{ (this.user.razon === '0') ? 'Turnos' : 'Mis Turnos' }}</a>
         </li>
         <!--END SECCIÓN USUARIOS PACIENTE -->
       </ul>
       <ul class="navbar-nav">
-        <li *ngIf="this.user !== undefined" class="nav-item">
+        <li appBold appGrow appHighlight *ngIf="this.user !== undefined" class="nav-item">
           <a class="nav-link text-white mx-2 d-flex align-items-center justify-content-center" (click)="this.onLogout()"><mat-icon>exit_to_app</mat-icon>Salir</a>
         </li>
       </ul>

@@ -61,9 +61,9 @@ export class AuthService {
     const usuarioSnapshot = await firstValueFrom(this.db.collection(this.collectionUsr).doc<Usuario>( usuario.email ).get());
 
     if ( !usuarioSnapshot?.exists ) {
+      console.log("no existe");
       return undefined;
     }
-    
     return usuarioSnapshot;
   }
 

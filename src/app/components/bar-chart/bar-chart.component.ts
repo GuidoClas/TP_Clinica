@@ -16,16 +16,20 @@ export class BarChartComponent implements OnInit {
   lineChartOptions : any = {
     maintainAspectRatio: false,
     responsive: true,
-    scales : {
-        yAxes: [{
-            ticks: {
-            beginAtZero: true,
-                stepValue: 1,
-                steps: 10,
-              max : 10,
-            }
-        }]
+    scales: {
+      x: {
+        grid: {
+          color: '#FFF',
+          borderColor: 'blue'
+        }
+      },
+      y: {
+        grid: {
+          color: '#FFF',
+          borderColor: 'blue'
+        }
       }
+    }
   };
 
   constructor() { }

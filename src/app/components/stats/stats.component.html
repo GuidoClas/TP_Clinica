@@ -1,28 +1,35 @@
-<div class="d-flex flex-row justify-content-between m-2 wrapper">
-    <div (click)="this.descargarPDF('graficoTurnosXCategoria', 'TurnosXCategoria')" id="graficoTurnosXCategoria" class="selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
-        <app-bar-chart
-        *ngIf="this.lineChartDataTurnosXCategoria && this.lineChartLabelsTurnosXCategoria"
-        [type]="'first'"
-        [lineChartData]="this.lineChartDataTurnosXCategoria"
-        [lineChartLabels]="this.lineChartLabelsTurnosXCategoria">
-        </app-bar-chart>
+<div class="d-flex align-center justify-content-center mt-2 mb-2">
+    <button class="btn btn-warning" (click)="this.setChart(-1)"> {{ "<" }} </button>
+    <button class="btn btn-warning" (click)="this.setChart(1)"> {{ ">" }} </button>
+</div>
+
+<div class="d-flex flex-row m-2 wrapper">
+    <div class="" *ngIf="this.counter === 0">
+        <div (click)="this.descargarPDF('graficoTurnosXCategoria', 'TurnosXCategoria')" id="graficoTurnosXCategoria" class="p-2 selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
+            <app-bar-chart
+            *ngIf="this.lineChartDataTurnosXCategoria && this.lineChartLabelsTurnosXCategoria"
+            [type]="'first'"
+            [lineChartData]="this.lineChartDataTurnosXCategoria"
+            [lineChartLabels]="this.lineChartLabelsTurnosXCategoria">
+            </app-bar-chart>
+        </div>
+    
+        <div (click)="this.descargarPDF('graficoTurnosXDia', 'TurnosXDia')" class="p-2" id="graficoTurnosXDia" matTooltip="Descargar PDF">
+            <app-bar-chart
+            *ngIf="this.lineChartDataTurnosPorDia && this.lineChartLabelsTurnosPordia"
+            [type]="'second'"
+            [lineChartData]="this.lineChartDataTurnosPorDia"
+            [lineChartLabels]="this.lineChartLabelsTurnosPordia"></app-bar-chart>
+        </div>
     </div>
 
-    <div (click)="this.descargarPDF('graficoTurnosXDia', 'TurnosXDia')" id="graficoTurnosXDia" matTooltip="Descargar PDF">
-        <app-bar-chart
-        *ngIf="this.lineChartDataTurnosPorDia && this.lineChartLabelsTurnosPordia"
-        [type]="'second'"
-        [lineChartData]="this.lineChartDataTurnosPorDia"
-        [lineChartLabels]="this.lineChartLabelsTurnosPordia"></app-bar-chart>
-    </div>
-
-    <div (click)="this.descargarExcel()" *ngIf="this.logs.length > 0" class="table-wrapper table-maxh selectable" matTooltip="Descargar Excel" matTooltipPosition="before">
+    <div (click)="this.descargarExcel()" *ngIf="this.counter === 1 && this.logs.length > 0" class="p-2 table-wrapper table-maxh selectable" matTooltip="Descargar Excel" matTooltipPosition="before">
         <table class="table table-striped" >
             <thead class="text-white">
                 <tr>
-                   <th>Usuario</th>
-                   <th>Fecha</th>
-                   <th>Hora</th> 
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Hora</th> 
                 </tr>
             </thead>
             <tbody>
@@ -34,38 +41,38 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="d-flex flex-row justify-content-between m-2">
-    <div class="d-flex flex-column">
+    
+    <div class="" *ngIf="this.counter === 2">
         <div class="d-flex flex-column">
-            <label class="form-label  text-white" for="fechaMin">Fecha inicio:</label>
-            <select (change)="this.seleccionarFechaMinima($any($event.target).value)" class="form-control" name="fechaMin" id="fechaMin">
-                <option disabled selected>Seleccione un valor</option>
-                <option [value]="fecha" *ngFor="let fecha of this.diasTurnos">{{fecha}}</option>
-            </select>
+            <div class="d-flex flex-column">
+                <label class="form-label  text-white" for="fechaMin">Fecha inicio:</label>
+                <select (change)="this.seleccionarFechaMinima($any($event.target).value)" class="form-control" name="fechaMin" id="fechaMin">
+                    <option disabled selected>Seleccione un valor</option>
+                    <option [value]="fecha" *ngFor="let fecha of this.diasTurnos">{{fecha}}</option>
+                </select>
+            </div>
+            <div *ngIf="this.fechasMaxTurnos.length > 0" class="d-flex flex-column">
+                <label for="fechaMax" class="form-label text-white">Fecha final:</label>
+                <select (change)="this.seleccionarFechaMaxima($any($event.target).value)" class="form-control" name="fechaMax" id="fechaMax">
+                    <option disabled selected>Seleccione un valor</option>
+                    <option *ngFor="let fecha of this.fechasMaxTurnos" [value]="fecha">{{fecha}}</option>
+                </select>
+            </div>
         </div>
-        <div *ngIf="this.fechasMaxTurnos.length > 0" class="d-flex flex-column">
-            <label for="fechaMax" class="form-label text-white">Fecha final:</label>
-            <select (change)="this.seleccionarFechaMaxima($any($event.target).value)" class="form-control" name="fechaMax" id="fechaMax">
-                <option disabled selected>Seleccione un valor</option>
-                <option *ngFor="let fecha of this.fechasMaxTurnos" [value]="fecha">{{fecha}}</option>
-            </select>
+        <div (click)="this.descargarPDF('graficoTurnosXMedicoSF', 'TurnosXMedicoNoFinalizados')" id="graficoTurnosXMedicoSF" class="selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
+            <app-bar-chart
+                *ngIf="this.lineChartDataTurnosXMedicoSF && this.lineChartLabelsTurnosXMedicoSF"
+                [type]="'third'"
+                [lineChartData]="this.lineChartDataTurnosXMedicoSF"
+                [lineChartLabels]="this.lineChartLabelsTurnosXMedicoSF"></app-bar-chart>
+        </div>
+        <div (click)="this.descargarPDF('graficoTurnosXMedicoF', 'TurnosXMedicoFinalizados')" id="graficoTurnosXMedicoF" class="selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
+            <app-bar-chart
+                *ngIf="this.lineChartDataTurnosXMedicoF && this.lineChartLabelsTurnosXMedicoF"
+                [type]="'fourth'"
+                [lineChartData]="this.lineChartDataTurnosXMedicoF"
+                [lineChartLabels]="this.lineChartLabelsTurnosXMedicoF"></app-bar-chart>
         </div>
     </div>
-    <div (click)="this.descargarPDF('graficoTurnosXMedicoSF', 'TurnosXMedicoNoFinalizados')" id="graficoTurnosXMedicoSF" class="selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
-        <app-bar-chart
-            *ngIf="this.lineChartDataTurnosXMedicoSF && this.lineChartLabelsTurnosXMedicoSF"
-            [type]="'third'"
-            [lineChartData]="this.lineChartDataTurnosXMedicoSF"
-            [lineChartLabels]="this.lineChartLabelsTurnosXMedicoSF"></app-bar-chart>
-    </div>
-    <div (click)="this.descargarPDF('graficoTurnosXMedicoF', 'TurnosXMedicoFinalizados')" id="graficoTurnosXMedicoF" class="selectable" matTooltip="Descargar PDF" matTooltipPosition="before">
-        <app-bar-chart
-            *ngIf="this.lineChartDataTurnosXMedicoF && this.lineChartLabelsTurnosXMedicoF"
-            [type]="'fourth'"
-            [lineChartData]="this.lineChartDataTurnosXMedicoF"
-            [lineChartLabels]="this.lineChartLabelsTurnosXMedicoF"></app-bar-chart>
-    </div>
+    
 </div>
-

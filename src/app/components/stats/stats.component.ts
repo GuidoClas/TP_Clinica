@@ -3,6 +3,7 @@ import { ChartDataset } from 'chart.js';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { AuthService } from 'src/app/services/Auth/auth.service';
+import { ExcelService } from 'src/app/services/ExcelService/excel.service';
 import { SpecialtiesService } from 'src/app/services/Specialties/specialties.service';
 import { TurnService } from 'src/app/services/TurnService/turn.service';
 
@@ -38,10 +39,12 @@ export class StatsComponent implements OnInit {
   public fechaMin : string = "";
   public fechaMax : string = "";
 
+  public counter: number = 0;
+
   constructor(
     private especialidadService : SpecialtiesService,
     private turnoService : TurnService,
-    /*private generarExcel : GenerarExcelLogsService,*/
+    private excelService : ExcelService,
     private authService : AuthService
   ) {}
 
@@ -59,7 +62,9 @@ export class StatsComponent implements OnInit {
 
     const lineChartData = [{
       data: dataTurnos,
-      label: 'Cantidad de Turnos Por Especialidad'
+      label: 'Cantidad de Turnos Por Especialidad',
+      borderColor: '#36A2EB',
+      backgroundColor: '#ffc107',
     }];
 
     this.lineChartLabelsTurnosXCategoria = lineChartLabels;
@@ -72,7 +77,9 @@ export class StatsComponent implements OnInit {
     this.lineChartLabelsTurnosPordia = labelTurnosXDias;
     this.lineChartDataTurnosPorDia = [{
       data: dataTurnosXDias,
-      label: "Turnos por día"
+      label: "Turnos por día",
+      borderColor: '#FF0000',
+      backgroundColor: '#ffc107',
     }];
     
 
@@ -146,21 +153,31 @@ export class StatsComponent implements OnInit {
 
     html2canvas( element ).then((canvas : any) => {
       var pdfFile = new jsPDF('l', 'px', "a4");
-      var imgData  = canvas.toDataURL("image/jpeg", 1.0);
-      pdfFile.addImage(imgData,0,0,canvas.width, canvas.height);
+      var imgData  = canvas.toDataURL("image/jpeg", 0.2);
+      pdfFile.addImage(imgData,0,0, 700, canvas.height);
       pdfFile.save(nombre + '.pdf');
     });
      
   }
   
   async descargarExcel() {
-    /*const blobFile = await this.generarExcel.generarExcel( this.logs.map( (log) => Object.values(log) ) );
+    const blobFile = await this.excelService.generarExcel( this.logs.map( (log) => Object.values(log) ) );
 
     const url = window.URL.createObjectURL(blobFile);
     const anchor = document.createElement("a");
     anchor.download = "Logs" + ".xlsx";
     anchor.href = url;
-    anchor.click();*/
+    anchor.click();
+  }
+
+  setChart(count: number){
+    if((this.counter + count ) < 0) {
+      return;
+    }
+    if((this.counter + count ) > 2) {
+      return;
+    }
+    this.counter += count;
   }
 
 }

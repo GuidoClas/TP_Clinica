@@ -42,7 +42,7 @@
                 <button
                     class="btn btn-warning" 
                     (click)="this.elegirHorario(horario)">
-                    {{horario}}
+                    {{horario | parseTime }}
                 </button>
             </li>
         </ul>
